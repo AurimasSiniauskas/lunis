@@ -147,6 +147,7 @@ buttons[7].addEventListener("click", () => {
         }
     }else if (operador != "") {
         operador = "%"
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal
         if (valorPrimero != "" && valorPrimeroFinal != null) {
             operador = "%";
             ultimoValor = null;
@@ -156,13 +157,15 @@ buttons[7].addEventListener("click", () => {
             valorPrimeroFinal = resultado;
             valorPrimero = "";
             document.getElementsByClassName("mainScreen")[0].innerHTML = resultado; 
+            document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal
         }
     }
 });
 
 buttons[11].addEventListener("click", () => {
     if(operador == "") {
-        operador = "+"
+        operador = "+";
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         if (valorPrimero != "" && ultimoValor == null) {
             operador = "+";
             valorPrimeroFinal = parseFloat(valorPrimero);
@@ -176,7 +179,8 @@ buttons[11].addEventListener("click", () => {
             document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }else if (operador != "") {
-        operador = "+"
+        operador = "+";
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         if (valorPrimero != "" && valorPrimeroFinal != null) {
             operador = "+"
             sumador = parseFloat(valorPrimero);
@@ -185,12 +189,23 @@ buttons[11].addEventListener("click", () => {
             valorPrimeroFinal = resultado;
             valorPrimero = "";
             document.getElementsByClassName("mainScreen")[0].innerHTML = resultado; 
+            document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
+    }else {
+        operador = "+";
+        sumador = parseFloat(valorPrimero);
+        resultado = suma(valorPrimeroFinal, sumador);
+        ultimoValor = resultado;
+        valorPrimeroFinal = resultado;
+        valorPrimero = "";
+        document.getElementsByClassName("mainScreen")[0].innerHTML = resultado; 
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
     }
 });
 
 buttons[15].addEventListener("click", () => {
     if(operador == "") {
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         operador = "-";
         if (valorPrimero != "" && ultimoValor == null) {
             operador = "-";
@@ -206,6 +221,7 @@ buttons[15].addEventListener("click", () => {
         }
     }else if (operador != "") {
         operador = "-";
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal
         if (valorPrimero != "" && valorPrimeroFinal != null) {
             operador = "-";
             restador = parseFloat(valorPrimero);
@@ -213,13 +229,15 @@ buttons[15].addEventListener("click", () => {
             ultimoValor = resultado;
             valorPrimeroFinal = resultado;
             valorPrimero = "";
-            document.getElementsByClassName("mainScreen")[0].innerHTML = resultado; 
+            document.getElementsByClassName("mainScreen")[0].innerHTML = resultado;
+            document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }
 });
 
 buttons[2].addEventListener("click", () => {
     if(operador == "") {
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         operador = "*";
         if (valorPrimero != "") {
             operador = "*";
@@ -235,6 +253,7 @@ buttons[2].addEventListener("click", () => {
         }
     }else if (operador != "") {
         operador = "*";
+        document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         if (valorPrimero != "" && valorPrimeroFinal != null) {
             operador = "*";
             multiplicador = parseFloat(valorPrimero);
@@ -243,6 +262,7 @@ buttons[2].addEventListener("click", () => {
             valorPrimeroFinal = resultado;
             valorPrimero = "";
             document.getElementsByClassName("mainScreen")[0].innerHTML = resultado; 
+            document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }
 });
@@ -308,8 +328,6 @@ buttons[18].addEventListener("click", () => {
                 valorPrimeroFinal = null;
                 operador = "";
             
-            
         }
     } 
 });
-
