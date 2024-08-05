@@ -1,23 +1,31 @@
-// Obtener los botones.
+// Array that contains all the buttons.
 let buttons = document.getElementsByTagName("button");
 
-// Inicializar los valores que formaran parte de la operación.
+// Store value given by the user.
 let valorPrimero = "";
+// Variable to store the number given by the user, so valorPrimero can be set back to the next input given by user. (Replaced.)
 let valorSecundario = null;
+// Stores current operator selected.
 let operador = "";
+// Value of the last operation. (Not used.)
 let valorGuardado = null;
+// Replace for the valorSecundario value.
 let valorPrimeroFinal = null;
+// Result, used to display the result, then is stored in valorGuardado.
 let resultado = null;
+// Stores the divisor.
 let divisor = null;
+// Same function as valorGuardado, but it is used.
 let ultimoValor = null;
-
+// Again, not used.
 let calc = true;
 
+// Displays 0 when no input was passed by the user.
 if (valorPrimero == "") {
     document.getElementsByClassName("mainScreen")[0].innerHTML = "0"
 }
 
-// Operaciones.
+// Operations.
 function division(val1, val2) {
     return(val1 / val2);
 }
@@ -34,10 +42,12 @@ function suma(val1, val2) {
     return(val1 + val2);
 }
 
+// Converts a value to its negative form.
 function convertir(val) {
     return(-(val));
 }
 
+// Assigning event listener to all buttons
 buttons[12].addEventListener("click", () => {
     if(valorPrimero.length < 16) {
         valorPrimero += "1";
@@ -122,6 +132,7 @@ buttons[3].addEventListener("click", () => {
 
 buttons[7].addEventListener("click", () => {
     if(operador == "") {
+        operador = "+";
         if (valorPrimero != "" && ultimoValor == null) {
             operador = "%";
             valorPrimeroFinal = parseFloat(valorPrimero);
@@ -135,7 +146,9 @@ buttons[7].addEventListener("click", () => {
             document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }else if (operador != "") {
+        operador = "%"
         if (valorPrimero != "" && valorPrimeroFinal != null) {
+            operador = "%";
             ultimoValor = null;
             divisor = parseFloat(valorPrimero);
             resultado = division(valorPrimeroFinal, divisor);
@@ -149,6 +162,7 @@ buttons[7].addEventListener("click", () => {
 
 buttons[11].addEventListener("click", () => {
     if(operador == "") {
+        operador = "+"
         if (valorPrimero != "" && ultimoValor == null) {
             operador = "+";
             valorPrimeroFinal = parseFloat(valorPrimero);
@@ -162,7 +176,9 @@ buttons[11].addEventListener("click", () => {
             document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }else if (operador != "") {
+        operador = "+"
         if (valorPrimero != "" && valorPrimeroFinal != null) {
+            operador = "+"
             sumador = parseFloat(valorPrimero);
             resultado = suma(valorPrimeroFinal, sumador);
             ultimoValor = resultado;
@@ -175,6 +191,7 @@ buttons[11].addEventListener("click", () => {
 
 buttons[15].addEventListener("click", () => {
     if(operador == "") {
+        operador = "-";
         if (valorPrimero != "" && ultimoValor == null) {
             operador = "-";
             valorPrimeroFinal = parseFloat(valorPrimero);
@@ -188,7 +205,9 @@ buttons[15].addEventListener("click", () => {
             document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }else if (operador != "") {
+        operador = "-";
         if (valorPrimero != "" && valorPrimeroFinal != null) {
+            operador = "-";
             restador = parseFloat(valorPrimero);
             resultado = resta(valorPrimeroFinal, restador);
             ultimoValor = resultado;
@@ -201,6 +220,7 @@ buttons[15].addEventListener("click", () => {
 
 buttons[2].addEventListener("click", () => {
     if(operador == "") {
+        operador = "*";
         if (valorPrimero != "") {
             operador = "*";
             valorPrimeroFinal = parseFloat(valorPrimero);
@@ -214,8 +234,9 @@ buttons[2].addEventListener("click", () => {
             document.getElementsByClassName("secondScreen")[0].innerHTML = valorPrimeroFinal;
         }
     }else if (operador != "") {
+        operador = "*";
         if (valorPrimero != "" && valorPrimeroFinal != null) {
-            alert("thats right")
+            operador = "*";
             multiplicador = parseFloat(valorPrimero);
             resultado = multiplicacion(valorPrimeroFinal, multiplicador);
             ultimoValor = resultado;
@@ -291,8 +312,4 @@ buttons[18].addEventListener("click", () => {
         }
     } 
 });
-
-
-
-
 
