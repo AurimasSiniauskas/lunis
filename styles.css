@@ -1,0 +1,98 @@
+body {
+    background: white;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    gap: 5rem;
+}
+
+.cuerpoCalc {
+    display: grid;
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+    max-width: 200px;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: rgb(179, 179, 179);
+    border-radius: 20px;
+    height: 340px;
+    background: linear-gradient(190deg, pink, pink);
+}
+
+.screen {
+    border: 1px solid black;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.secondScreen {
+    font-size: small;
+    padding-bottom: 15px;
+    padding-right: 5px;
+}
+
+.mainScreen {
+    font-size: larger;
+    padding-right: 5px;
+}
+
+.teclas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr  1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    max-height: 220px;
+    max-width: 200px;
+    min-width: 100px;
+    min-height: 200px;
+    grid-gap: 10px;
+}
+
+.teclas > button {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 34px;
+    box-shadow: 1px 1px 5px;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+
+#backspace {
+    background-color: rgba(255, 0, 0, 0.384);
+    line-height: 0;
+}
+
+#cero {
+    grid-column: 2 span;
+}
+
+.teclas > button:hover {
+    background-color: #e0e0e0;
+}
+
+.teclas > button:active {
+    opacity: 20%;
+}
+
+h1 {
+   font-weight: 100;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
